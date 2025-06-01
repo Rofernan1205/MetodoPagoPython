@@ -43,9 +43,9 @@ class MetodoPago(ABC):
             "nombre_visible": self.nombre_visible,
         }
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"MetodoPago({self.metodo_id} - {self.nombre_visible})"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"MetodoPago('{self.metodo_id}', '{self.nombre_visible}')"
 

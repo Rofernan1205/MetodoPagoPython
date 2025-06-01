@@ -8,7 +8,7 @@ class PagoEfectivo(MetodoPago):
         self.nombre = nombre
 
     @property
-    def dni(self):
+    def dni(self) -> str:
         return self._dni
 
     @dni.setter
@@ -18,7 +18,7 @@ class PagoEfectivo(MetodoPago):
         self._dni = dni
 
     @property
-    def nombre(self):
+    def nombre(self) -> str:
         return self._nombre
 
     @nombre.setter
@@ -27,11 +27,11 @@ class PagoEfectivo(MetodoPago):
             raise ValueError("El campo nombre no puede estar vacío")
         self._nombre = nombre
 
-    def pagar(self, monto: float):
+    def pagar(self, monto: float) -> bool:
         print(f"Pago en efectivo de {monto:.2f} realizado por {self.nombre} (DNI: {self.dni})")
         return True
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         data = super().to_dict()
         data.update({
             "dni": self.dni,
@@ -39,8 +39,8 @@ class PagoEfectivo(MetodoPago):
         })
         return data
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"PagoEfectivo({self.metodo_id} - {self.nombre_visible} - {self.dni} - {self.nombre})"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"PagoEfectivo('{self.metodo_id}', '{self.nombre_visible}', '{self.dni}', '{self.nombre}')"
